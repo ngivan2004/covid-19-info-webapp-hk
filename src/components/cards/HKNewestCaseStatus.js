@@ -11,7 +11,6 @@ import ArrowUpward from "@material-ui/icons/ArrowUpward";
 import ArrowDownward from "@material-ui/icons/ArrowDownward";
 import axios from "axios";
 import Typography from "@material-ui/core/Typography";
-import { fadeInUp } from "react-animations";
 
 const StyledTableCell = withStyles(theme => ({
   head: {

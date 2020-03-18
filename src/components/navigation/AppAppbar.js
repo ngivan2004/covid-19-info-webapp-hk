@@ -82,7 +82,7 @@ export default prop => {
           </IconButton>
           <Typography variant="h6" className={classes.title}>
             <Link href="/" color="inherit">
-              武漢肺炎實時資料庫
+              武漢肺炎最新數據及資料整合
             </Link>
           </Typography>
           <Button

@@ -262,7 +262,7 @@ export default class ConfirmCasesChart extends Component {
   render() {
     return (
       <Paper>
-        <h1>累積個案</h1>
+        <h2>累積個案</h2>
         <div>
           <ButtonGroup
             variant="contained"

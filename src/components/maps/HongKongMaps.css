@@ -1,0 +1,12 @@
+.safe {
+  fill: rgb(255, 167, 167);
+}
+.dangerous {
+  fill: rgb(98, 23, 23);
+}
+.middle {
+  fill: rgb(207, 45, 45);
+}
+.none {
+  fill: rgb(255, 230, 230);
+}

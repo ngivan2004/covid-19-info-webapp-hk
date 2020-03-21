@@ -54,7 +54,7 @@ export default props => {
   }, []);
   return (
     <Paper>
-      <h1>最新數據</h1>
+      <h2>香港最新數字</h2>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="customized table">
           <TableHead>

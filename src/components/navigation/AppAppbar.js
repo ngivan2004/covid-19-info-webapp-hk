@@ -8,7 +8,7 @@ import ShareIcon from "@material-ui/icons/Share";
 import Typography from "@material-ui/core/Typography";
 
 import Drawer from "@material-ui/core/Drawer";
-//import Sidebar from "../Sidebar/Sidebar";
+import Sidebar from "./Sidebar";
 
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
@@ -69,7 +69,7 @@ export default prop => {
 
   return (
     <div className={classes.root}>
-      <AppBar>
+      <AppBar position="fixed">
         <Toolbar>
           <IconButton
             edge="start"
@@ -95,11 +95,12 @@ export default prop => {
           </Button>
         </Toolbar>
       </AppBar>
+      <div style={{ paddingTop: 30 }}></div>
       <Drawer open={state.drawer} onClose={toogleDrawer(false)}>
-        {/* <Sidebar
+        <Sidebar
           onClick={toogleDrawer(false)}
           onKeyDown={toogleDrawer(false)}
-        /> */}
+        />
       </Drawer>
       <Menu
         id="simple-menu"

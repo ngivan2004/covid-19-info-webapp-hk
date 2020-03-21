@@ -266,7 +266,7 @@ export const AgeStatus = () => {
           }
         ]}
         type="bar"
-        width="500"
+        height="350"
       />
     </div>
   );

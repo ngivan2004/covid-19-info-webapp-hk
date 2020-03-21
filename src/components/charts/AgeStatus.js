@@ -256,13 +256,14 @@ export const AgeStatus = () => {
             name: "死亡",
             data: death
           },
-          {
-            name: "出院",
-            data: recover
-          },
+
           {
             name: "住院",
             data: active
+          },
+          {
+            name: "出院",
+            data: recover
           }
         ]}
         type="bar"

@@ -4,7 +4,7 @@ import "./App.css";
 import AppAppbar from "./components/navigation/AppAppbar";
 
 import HomeAll from "./pages/Home/HomeAll";
-import HKIndepth from "./pages/HKIndepth";
+import HKIndepthAll from "./pages/HKIndepth/HKIndepthAll";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
             <HomeAll />
           </Route>
           <Route exact path="/hkindepth">
-            <HKIndepth />
+            <HKIndepthAll />
           </Route>
         </Switch>
       </Router>

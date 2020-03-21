@@ -467,13 +467,14 @@ export default class DeathWaffle extends Component {
             aria-label="outlined primary button group"
             size="small"
           >
-            <Button onClick={this.latestonClick}>所有年齡層</Button>
+            <Button onClick={this.latestonClick}>所有年齡</Button>
             <Button onClick={this._0110onClick}>1-10</Button>
             <Button onClick={this._1120onClick}>11-20</Button>
             <Button onClick={this._2130onClick}>21-30</Button>{" "}
             <Button onClick={this._3140onClick}>31-40</Button>{" "}
             <Button onClick={this._4150onClick}>41-50</Button>{" "}
-          </ButtonGroup>{" "}
+          </ButtonGroup>
+          <div></div>
           <ButtonGroup
             variant="contained"
             color="primary"
@@ -493,7 +494,7 @@ export default class DeathWaffle extends Component {
             total={this.state.total}
             rows={4}
             columns={25}
-            margin={{ top: 10, right: 10, bottom: 10, left: 10 }}
+            margin={{ top: 10, right: 0, bottom: 10, left: 0 }}
             colors={{ scheme: "dark2" }}
             borderColor={{ from: "color", modifiers: [["darker", 0.3]] }}
             animate={true}
@@ -534,7 +535,7 @@ export default class DeathWaffle extends Component {
                   align="center"
                   style={{ backgroundColor: "#009EDE", color: "white" }}
                 >
-                  已結束個案
+                  已完結個案
                 </TableCell>
                 <TableCell
                   align="center"
@@ -560,32 +561,53 @@ export default class DeathWaffle extends Component {
               <TableRow>
                 <TableCell
                   align="center"
-                  style={{ backgroundColor: "#E1ECF4", color: "#009EDE" }}
+                  style={{
+                    backgroundColor: "#E1ECF4",
+                    color: "#009EDE",
+                    fontSize: 21
+                  }}
                 >
                   {this.state.total == 7000000 ? 0 : this.state.total}
                 </TableCell>
                 <TableCell
                   align="center"
-                  style={{ backgroundColor: "#F3F6F8", color: "#4E5A65" }}
+                  style={{
+                    backgroundColor: "#F3F6F8",
+                    color: "#4E5A65",
+                    fontSize: 21
+                  }}
                 >
                   {this.state.death}
                 </TableCell>
                 <TableCell
                   align="center"
-                  style={{ backgroundColor: "#F1F8F4", color: "#178B50" }}
+                  style={{
+                    backgroundColor: "#F1F8F4",
+                    color: "#178B50",
+                    fontSize: 21
+                  }}
                 >
                   {this.state.recover}
                 </TableCell>
                 <TableCell
                   align="center"
-                  style={{ backgroundColor: "#F3F6F8", color: "#0C0D0E" }}
+                  style={{
+                    backgroundColor: "#F3F6F8",
+                    color: "#0C0D0E",
+                    fontSize: 21
+                  }}
                 >
                   {Math.round(
                     (this.state.death /
                       (this.state.death + this.state.recover)) *
                       100
-                  )}
-                  %
+                  ) >= 0
+                    ? Math.round(
+                        (this.state.death /
+                          (this.state.death + this.state.recover)) *
+                          100
+                      ) + "%"
+                    : "-"}
                 </TableCell>
               </TableRow>
             </TableBody>

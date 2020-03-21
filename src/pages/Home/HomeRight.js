@@ -16,6 +16,7 @@ function HomeRight() {
       <div style={section}>
         <ConfirmCasesChart />
         <CasesIncreaseinaDayChart />
+        <LastUpdate />
       </div>
     </>
   );

@@ -24,7 +24,6 @@ function HomeLeft() {
         </div>
 
         <HKNewestCaseStatus />
-        <LastUpdate />
       </div>
     </>
   );

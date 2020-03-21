@@ -148,7 +148,7 @@ export default class ConfirmCasesChart extends Component {
             },
             series: [
               {
-                name: "確診人數",
+                name: "累積確診",
                 data: this.hkcomfirmCase
               },
               {
@@ -180,7 +180,7 @@ export default class ConfirmCasesChart extends Component {
       },
       series: [
         {
-          name: "確診人數",
+          name: "累積確診",
           data: this.globalconfirmCase
         },
         {
@@ -210,7 +210,7 @@ export default class ConfirmCasesChart extends Component {
       },
       series: [
         {
-          name: "確診人數",
+          name: "累積人數",
           data: this.hkcomfirmCase
         },
         {
@@ -240,7 +240,7 @@ export default class ConfirmCasesChart extends Component {
       },
       series: [
         {
-          name: "確診人數",
+          name: "累積確診",
           data: this.cnconfirmCase
         },
         {

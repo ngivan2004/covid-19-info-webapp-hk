@@ -32,7 +32,7 @@ const StyledTableRow = withStyles(theme => ({
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 100
+    minWidth: 350
   }
 });
 export default props => {

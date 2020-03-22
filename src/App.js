@@ -6,6 +6,8 @@ import AppAppbar from "./components/navigation/AppAppbar";
 import HomeAll from "./pages/Home/HomeAll";
 import HKIndepthAll from "./pages/HKIndepth/HKIndepthAll";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import ImmigrationAll from "./pages/Immigration/ImmigrationAll";
+import GlobalAll from "./pages/Global/GlobalAll";
 
 function App() {
   return (
@@ -18,6 +20,12 @@ function App() {
           </Route>
           <Route exact path="/hkindepth">
             <HKIndepthAll />
+          </Route>
+          <Route exact path="/immigration">
+            <ImmigrationAll />
+          </Route>
+          <Route exact path="/global">
+            <GlobalAll />
           </Route>
         </Switch>
       </Router>

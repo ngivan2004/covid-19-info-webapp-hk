@@ -205,7 +205,7 @@ export const AgeStatus = () => {
   };
 
   return (
-    <div>
+    <Paper>
       <h2>按患者年齡－狀態</h2>
       <ButtonGroup
         variant="contained"
@@ -269,7 +269,7 @@ export const AgeStatus = () => {
         type="bar"
         height="350"
       />
-    </div>
+    </Paper>
   );
 };
 

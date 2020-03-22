@@ -17,6 +17,7 @@ import StorageIcon from "@material-ui/icons/Storage";
 import ContactsIcon from "@material-ui/icons/Contacts";
 import HotelIcon from "@material-ui/icons/Hotel";
 import PublicIcon from "@material-ui/icons/Public";
+import FlightIcon from "@material-ui/icons/Flight";
 
 const useStyles = makeStyles({
   list: {
@@ -55,12 +56,18 @@ export default prop => {
           </ListItemIcon>
           <ListItemText primary="香港地區深入數據分析" />
         </ListItem>
-        {/* <ListItem button key="全球疫情" component="a" href="/globalstat">
+        <ListItem button key="入境數字" component="a" href="/immigration">
+          <ListItemIcon>
+            <FlightIcon color="error" />
+          </ListItemIcon>
+          <ListItemText primary="入境數字" />
+        </ListItem>
+        <ListItem button key="全球疫情" component="a" href="/global">
           <ListItemIcon>
             <PublicIcon color="error" />
           </ListItemIcon>
           <ListItemText primary="全球疫情" />
-        </ListItem> */}
+        </ListItem>
         {/* <ListItem button key="個案" component="a" href="/cases">
           <ListItemIcon>
             <HotelIcon color="error" />

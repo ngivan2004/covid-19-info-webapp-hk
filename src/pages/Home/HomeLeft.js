@@ -7,12 +7,12 @@ import LastUpdate from "../../components/cards/Lastupdate";
 
 const section = {
   padding: 10,
-  backgroundColor: "#fff"
+  backgroundColor: "#F5F5F6"
 };
 
 const top = {
   paddingTop: 0,
-  backgroundColor: "#fff"
+  backgroundColor: "#F5F5F6"
 };
 
 function HomeLeft() {

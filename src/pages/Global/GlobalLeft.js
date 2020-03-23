@@ -6,13 +6,11 @@ import GlobalNewestCaseStatus from "../../components/cards/GlobalNewestCaseStatu
 import LastUpdate from "../../components/cards/Lastupdate";
 
 const section = {
-  padding: 10,
-  backgroundColor: "#fff"
+  padding: 5
 };
 
 const top = {
-  paddingTop: 0,
-  backgroundColor: "#fff"
+  paddingTop: 0
 };
 
 function GlobalLeft() {

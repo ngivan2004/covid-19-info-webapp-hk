@@ -7,8 +7,7 @@ import DeathWaffle from "../../components/charts/DeathWaffle";
 import AgeStatus from "../../components/charts/AgeStatus";
 
 const section = {
-  padding: 10,
-  backgroundColor: "#fff"
+  padding: 10
 };
 
 export default class HKIndepthRight extends Component {

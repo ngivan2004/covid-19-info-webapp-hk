@@ -7,7 +7,8 @@ import HomeRight from "./HomeRight";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: "100%"
+    width: "100%",
+    backgroundColor: "#F5F5F6"
   },
   homeWrapper: {
     display: "flex",

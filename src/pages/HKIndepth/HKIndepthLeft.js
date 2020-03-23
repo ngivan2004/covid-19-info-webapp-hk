@@ -7,13 +7,11 @@ import DeathWaffle from "../../components/charts/DeathWaffle";
 import HKImportOther from "../../components/charts/HKImportOther";
 
 const section = {
-  padding: 10,
-  backgroundColor: "#fff"
+  padding: 10
 };
 
 const top = {
-  paddingTop: 40,
-  backgroundColor: "#fff"
+  paddingTop: 40
 };
 
 export default class HKIndepthLeft extends Component {

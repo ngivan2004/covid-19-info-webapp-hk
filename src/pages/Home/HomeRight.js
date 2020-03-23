@@ -6,8 +6,7 @@ import HKNewestCaseStatus from "../../components/cards/HKNewestCaseStatus";
 import LastUpdate from "../../components/cards/Lastupdate";
 
 const section = {
-  padding: 10,
-  backgroundColor: "#fff"
+  padding: 10
 };
 
 function HomeRight() {

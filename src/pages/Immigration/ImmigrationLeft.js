@@ -2,13 +2,11 @@ import React, { Component } from "react";
 import ImmigrationNum from "../../components/cards/ImmigrationNum";
 
 const section = {
-  padding: 10,
-  backgroundColor: "#fff"
+  padding: 10
 };
 
 const top = {
-  paddingTop: 40,
-  backgroundColor: "#fff"
+  paddingTop: 40
 };
 
 export default class HKIndepthLeft extends Component {

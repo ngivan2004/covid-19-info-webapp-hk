@@ -33,7 +33,7 @@ const StyledTableRow = withStyles(theme => ({
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 380
+    minWidth: 350
   }
 });
 export default props => {
@@ -97,6 +97,7 @@ export default props => {
             death: globaldeathy,
             recover: globalrecovery
           };
+
           console.log(fiigure);
           console.log(yeesterday);
 
@@ -114,27 +115,53 @@ export default props => {
             <TableRow>
               <StyledTableCell
                 align="center"
-                style={{ backgroundColor: "#CC1E1E", color: "white" }}
+                style={{
+                  backgroundColor: "#CC1E1E",
+                  color: "white",
+                  fontSize: 17
+                }}
               >
                 累積確診
               </StyledTableCell>
               <StyledTableCell
                 align="center"
-                style={{ backgroundColor: "#F23A3B", color: "white" }}
+                style={{
+                  backgroundColor: "#F23A3B",
+                  color: "white",
+                  fontSize: 17
+                }}
               >
                 現有確診
               </StyledTableCell>
               <StyledTableCell
                 align="center"
-                style={{ backgroundColor: "#178B50", color: "white" }}
+                style={{
+                  backgroundColor: "#178B50",
+                  color: "white",
+                  fontSize: 15
+                }}
               >
                 累積出院
               </StyledTableCell>
               <StyledTableCell
                 align="center"
-                style={{ backgroundColor: "#4E5A65", color: "white" }}
+                style={{
+                  backgroundColor: "#4E5A65",
+                  color: "white",
+                  fontSize: 15
+                }}
               >
                 累積死亡
+              </StyledTableCell>
+              <StyledTableCell
+                align="center"
+                style={{
+                  backgroundColor: "#000000",
+                  color: "white",
+                  fontSize: 13
+                }}
+              >
+                死亡率
               </StyledTableCell>
             </TableRow>
           </TableHead>
@@ -145,7 +172,7 @@ export default props => {
                 style={{
                   backgroundColor: "#FDF1F1",
                   color: "#CC1E1E",
-                  fontSize: 16
+                  fontSize: 14
                 }}
               >
                 {figure.comfirmCase}
@@ -155,7 +182,7 @@ export default props => {
                 style={{
                   backgroundColor: "#FDF1F1",
                   color: "#F23A3B",
-                  fontSize: 16
+                  fontSize: 14
                 }}
               >
                 {figure.comfirmCase - figure.recover - figure.death}
@@ -165,7 +192,7 @@ export default props => {
                 style={{
                   backgroundColor: "#F1F8F4",
                   color: "#178B50",
-                  fontSize: 16
+                  fontSize: 14
                 }}
               >
                 {figure.recover}
@@ -175,16 +202,30 @@ export default props => {
                 style={{
                   backgroundColor: "#F3F6F8",
                   color: "#4E5A65",
-                  fontSize: 16
+                  fontSize: 14
                 }}
               >
                 {figure.death}
+              </StyledTableCell>
+              <StyledTableCell
+                align="center"
+                style={{
+                  backgroundColor: "#F3F6F8",
+                  color: "#000000",
+                  fontSize: 14
+                }}
+              >
+                {(
+                  (figure.death / (figure.death + figure.recover)) *
+                  100
+                ).toFixed([2])}
+                %
               </StyledTableCell>
             </StyledTableRow>
             <StyledTableRow>
               <StyledTableCell
                 align="center"
-                style={{ color: "#CC1E1E", fontSize: 16 }}
+                style={{ color: "#CC1E1E", fontSize: 14 }}
               >
                 {figure.comfirmCase - yesterday.comfirmCase > 0 ? (
                   <Typography>
@@ -202,7 +243,7 @@ export default props => {
               </StyledTableCell>
               <StyledTableCell
                 align="center"
-                style={{ color: "#F23A3B", fontSize: 16 }}
+                style={{ color: "#F23A3B", fontSize: 14 }}
               >
                 {figure.comfirmCase -
                   figure.recover -
@@ -242,7 +283,7 @@ export default props => {
               </StyledTableCell>
               <StyledTableCell
                 align="center"
-                style={{ color: "#178B50", fontSize: 16 }}
+                style={{ color: "#178B50", fontSize: 14 }}
               >
                 {figure.recover - yesterday.recover > 0 ? (
                   <Typography>
@@ -259,7 +300,7 @@ export default props => {
               </StyledTableCell>
               <StyledTableCell
                 align="center"
-                style={{ color: "#4E5A65", fontSize: 16 }}
+                style={{ color: "#4E5A65", fontSize: 14 }}
               >
                 {figure.death - yesterday.death > 0 ? (
                   <Typography>
@@ -271,6 +312,42 @@ export default props => {
                 ) : (
                   <Typography>
                     <ArrowDownward /> {figure.death - yesterday.death}
+                  </Typography>
+                )}
+              </StyledTableCell>
+              <StyledTableCell
+                align="center"
+                style={{ color: "#4E5A65", fontSize: 14 }}
+              >
+                {(figure.death / (figure.death + figure.recover)) * 100 -
+                  (yesterday.death / (yesterday.death + yesterday.recover)) *
+                    100 >
+                0 ? (
+                  <Typography>
+                    <ArrowUpward />
+                    {(
+                      (figure.death / (figure.death + figure.recover)) * 100 -
+                      (yesterday.death /
+                        (yesterday.death + yesterday.recover)) *
+                        100
+                    ).toFixed([2])}
+                    %
+                  </Typography>
+                ) : (figure.death / (figure.death + figure.recover)) * 100 -
+                    (yesterday.death / (yesterday.death + yesterday.recover)) *
+                      100 ===
+                  0 ? (
+                  <Typography>-</Typography>
+                ) : (
+                  <Typography>
+                    <ArrowDownward />{" "}
+                    {(
+                      (figure.death / (figure.death + figure.recover)) * 100 -
+                      (yesterday.death /
+                        (yesterday.death + yesterday.recover)) *
+                        100
+                    ).toFixed([2])}
+                    %
                   </Typography>
                 )}
               </StyledTableCell>

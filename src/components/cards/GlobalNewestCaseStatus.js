@@ -50,7 +50,7 @@ export default props => {
       ])
       .then(
         axios.spread((globalconfD, globaldeathD, globalrecoverD) => {
-          Object.prototype.pop = function() {
+          Object.pop = function() {
             for (var key in this) {
               if (!Object.hasOwnProperty.call(this, key)) continue;
               var result = this[key];
@@ -153,16 +153,6 @@ export default props => {
               >
                 累積死亡
               </StyledTableCell>
-              <StyledTableCell
-                align="center"
-                style={{
-                  backgroundColor: "#000000",
-                  color: "white",
-                  fontSize: 13
-                }}
-              >
-                死亡率
-              </StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -206,20 +196,6 @@ export default props => {
                 }}
               >
                 {figure.death}
-              </StyledTableCell>
-              <StyledTableCell
-                align="center"
-                style={{
-                  backgroundColor: "#F3F6F8",
-                  color: "#000000",
-                  fontSize: 14
-                }}
-              >
-                {(
-                  (figure.death / (figure.death + figure.recover)) *
-                  100
-                ).toFixed([2])}
-                %
               </StyledTableCell>
             </StyledTableRow>
             <StyledTableRow>
@@ -312,42 +288,6 @@ export default props => {
                 ) : (
                   <Typography>
                     <ArrowDownward /> {figure.death - yesterday.death}
-                  </Typography>
-                )}
-              </StyledTableCell>
-              <StyledTableCell
-                align="center"
-                style={{ color: "#4E5A65", fontSize: 14 }}
-              >
-                {(figure.death / (figure.death + figure.recover)) * 100 -
-                  (yesterday.death / (yesterday.death + yesterday.recover)) *
-                    100 >
-                0 ? (
-                  <Typography>
-                    <ArrowUpward />
-                    {(
-                      (figure.death / (figure.death + figure.recover)) * 100 -
-                      (yesterday.death /
-                        (yesterday.death + yesterday.recover)) *
-                        100
-                    ).toFixed([2])}
-                    %
-                  </Typography>
-                ) : (figure.death / (figure.death + figure.recover)) * 100 -
-                    (yesterday.death / (yesterday.death + yesterday.recover)) *
-                      100 ===
-                  0 ? (
-                  <Typography>-</Typography>
-                ) : (
-                  <Typography>
-                    <ArrowDownward />{" "}
-                    {(
-                      (figure.death / (figure.death + figure.recover)) * 100 -
-                      (yesterday.death /
-                        (yesterday.death + yesterday.recover)) *
-                        100
-                    ).toFixed([2])}
-                    %
                   </Typography>
                 )}
               </StyledTableCell>

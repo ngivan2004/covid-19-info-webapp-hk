@@ -9,6 +9,7 @@ export default props => {
   const [confirm, setconfirm] = useState();
   const [death, setdeath] = useState();
   const [colors, setColors] = useState();
+  const [region, setRegion] = useState();
   let confirmarray;
   let deatharray;
   useEffect(() => {
@@ -40,6 +41,7 @@ export default props => {
           setShow(confirmarray);
           setconfirm(confirmarray);
           setdeath(deatharray);
+          setRegion("world");
           setColors([
             "#ffe6e6",
 
@@ -119,6 +121,13 @@ export default props => {
     setShow(death);
     setColors(["#ffe6ff", "#1a001a"]);
   };
+
+  const wrld = () => {
+    setRegion("world");
+  };
+  const eu = () => {
+    setRegion("150");
+  };
   return (
     <Paper>
       <div>
@@ -130,18 +139,28 @@ export default props => {
           <Button onClick={confirmm}>確診</Button>
           <Button onClick={deathh}>死亡</Button>
         </ButtonGroup>
+        <h6></h6>
+        <ButtonGroup
+          variant="contained"
+          color="primary"
+          aria-label="outlined primary button group"
+        >
+          <Button onClick={wrld}>全球</Button>
+          <Button onClick={eu}>歐洲</Button>
+        </ButtonGroup>
       </div>
       <Chart
         chartType="GeoChart"
         data={show}
         options={{
+          region: region,
           colorAxis: {
             colors: colors
           }
         }}
         // Note: you will need to get a mapsApiKey for your project.
         // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
-        // mapsApiKey="AIzaSyCmMVWQJHwBKgC6mGIWQ661UHYC1FY47p8"
+        //mapsApiKey=""
       />
     </Paper>
   );

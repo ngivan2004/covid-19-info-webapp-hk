@@ -65,16 +65,11 @@ export default props => {
     {
       title: "累積死亡",
       field: "death"
-    },
-    {
-      title: "累積治愈",
-      field: "recover"
-    },
-    {
-      title: "死亡率",
-      field: "deathrate",
-      sorting: false
     }
+    // {
+    //   title: "累積治愈",
+    //   field: "recover"
+    // }
   ];
 
   const columnsnewCountry = [
@@ -89,10 +84,10 @@ export default props => {
       title: "新增死亡",
       field: "newdeath"
     },
-    {
-      title: "新增治愈",
-      field: "newrecover"
-    },
+    // {
+    //   title: "新增治愈",
+    //   field: "newrecover"
+    // },
     {
       title: "確診改變",
       field: "growth",
@@ -220,31 +215,16 @@ export default props => {
                   ) + "%"
                 : parseInt(0) + "%";
             y["growth"] =
-              (y["conf"] -
-                y["death"] -
-                y["recover"] -
-                (y["yestconf"] - y["yestdeath"] - y["yestrecover"])) /
-                (y["yestconf"] - y["yestdeath"] - y["yestrecover"]) >
-              0
+              (y["conf"] - y["yestconf"]) / y["yestconf"] > 0
                 ? parseFloat(
-                    (
-                      ((y["conf"] -
-                        y["death"] -
-                        y["recover"] -
-                        (y["yestconf"] - y["yestdeath"] - y["yestrecover"])) /
-                        (y["yestconf"] - y["yestdeath"] - y["yestrecover"])) *
-                      100
-                    ).toFixed(2)
+                    (y["growth"] =
+                      ((y["conf"] - y["yestconf"]) / y["yestconf"]) *
+                      100).toFixed(2)
                   ) + "%"
                 : parseFloat(
-                    (
-                      ((y["conf"] -
-                        y["death"] -
-                        y["recover"] -
-                        (y["yestconf"] - y["yestdeath"] - y["yestrecover"])) /
-                        (y["yestconf"] - y["yestdeath"] - y["yestrecover"])) *
-                      100
-                    ).toFixed(2)
+                    (y["growth"] =
+                      ((y["conf"] - y["yestconf"]) / y["yestconf"]) *
+                      100).toFixed(2)
                   ) + "%";
             return y;
           });

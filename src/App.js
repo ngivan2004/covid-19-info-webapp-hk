@@ -8,6 +8,7 @@ import HKIndepthAll from "./pages/HKIndepth/HKIndepthAll";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ImmigrationAll from "./pages/Immigration/ImmigrationAll";
 import GlobalAll from "./pages/Global/GlobalAll";
+import Source from "./pages/Source";
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
           </Route>
           <Route exact path="/global">
             <GlobalAll />
+          </Route>
+          <Route exact path="/source">
+            <Source />
           </Route>
         </Switch>
       </Router>

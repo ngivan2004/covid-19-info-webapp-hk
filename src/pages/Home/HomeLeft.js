@@ -8,6 +8,7 @@ import GlobalNewestCaseStatus from "../../components/cards/GlobalNewestCaseStatu
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import ImmigrationNum from "../../components/cards/ImmigrationNum";
+import WorldMap from "../../components/maps/WorldMap";
 const section = {
   padding: 10,
   backgroundColor: "#F5F5F6"
@@ -35,18 +36,8 @@ function HomeLeft() {
             查看香港地區深入數據分析>>
           </Button>
         </Paper>
-        <Paper>
-          <GlobalNewestCaseStatus />
-          <Button href="/global" color="primary">
-            查看全球疫情>>
-          </Button>
-        </Paper>
-        <Paper>
-          <ImmigrationNum />
-          <Button href="/immigration" color="primary">
-            查看出入境數據>>
-          </Button>
-        </Paper>
+        <ConfirmCasesChart />
+        <CasesIncreaseinaDayChart />
       </div>
     </>
   );

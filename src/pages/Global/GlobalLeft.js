@@ -4,6 +4,7 @@ import ConfirmCasesChart from "../../components/charts/ConfirmCasesChart";
 import CasesIncreaseinaDayChart from "../../components/charts/CasesIncreaseinaDayChart";
 import GlobalNewestCaseStatus from "../../components/cards/GlobalNewestCaseStatus";
 import LastUpdate from "../../components/cards/Lastupdate";
+import WorldMap from "../../components/maps/WorldMap";
 
 const section = {
   padding: 5
@@ -28,6 +29,7 @@ function GlobalLeft() {
         </div>
 
         <GlobalNewestCaseStatus />
+        <WorldMap />
       </div>
     </>
   );

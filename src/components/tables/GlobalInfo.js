@@ -197,23 +197,23 @@ export default props => {
             })
           );
 
-          _.merge(finishednewconf, finishednewdeath, finishednewrecover);
-          _.merge(finishedyestconf, finishedyestdeath, finishedyestrecover);
+          _.merge(finishednewconf, finishednewdeath);
+          _.merge(finishedyestconf, finishedyestdeath);
           _.merge(finishedyestconf, finishedconf, finishednewconf);
           console.log(finishednewconf);
 
           let ress = finishedyestconf.map(x => {
             // copy properties to a new object
             let y = Object.assign({}, x);
-            y["deathrate"] =
-              ((y["death"] / (y["death"] + y["recover"])) * 100).toFixed(0) <=
-              100
-                ? parseInt(
-                    ((y["death"] / (y["death"] + y["recover"])) * 100).toFixed(
-                      0
-                    )
-                  ) + "%"
-                : parseInt(0) + "%";
+            // y["deathrate"] =
+            //   ((y["death"] / (y["death"] + y["recover"])) * 100).toFixed(0) <=
+            //   100
+            //     ? parseInt(
+            //         ((y["death"] / (y["death"] + y["recover"])) * 100).toFixed(
+            //           0
+            //         )
+            //       ) + "%"
+            //     : parseInt(0) + "%";
             y["growth"] =
               (y["conf"] - y["yestconf"]) / y["yestconf"] > 0
                 ? parseFloat(

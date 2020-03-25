@@ -45,11 +45,12 @@ export default props => {
     axios
       .all([
         axios.get("https://api.n-cov.info/worldcomfirm"),
-        axios.get("https://api.n-cov.info/worlddeath"),
-        axios.get("https://api.n-cov.info/worldRecover")
+        axios.get("https://api.n-cov.info/worlddeath")
+        // axios.get("https://api.n-cov.info/worldRecover")
       ])
       .then(
-        axios.spread((globalconfD, globaldeathD, globalrecoverD) => {
+        axios.spread((globalconfD, globaldeathD) => {
+          // , globalrecoverD
           Object.pop = function() {
             for (var key in this) {
               if (!Object.hasOwnProperty.call(this, key)) continue;
@@ -66,9 +67,9 @@ export default props => {
           let globaldeath = sumValues(
             Object.values(globaldeathD.data.data).pop()
           );
-          let globalrecover = sumValues(
-            Object.values(globalrecoverD.data.data).pop()
-          );
+          // let globalrecover = sumValues(
+          //   Object.values(globalrecoverD.data.data).pop()
+          // );
 
           let globalconfy = sumValues(
             Object.values(globalconfD.data.data)[
@@ -80,22 +81,22 @@ export default props => {
               Object.values(globaldeathD.data.data).length - 2
             ]
           );
-          let globalrecovery = sumValues(
-            Object.values(globalrecoverD.data.data)[
-              Object.values(globalrecoverD.data.data).length - 2
-            ]
-          );
+          // let globalrecovery = sumValues(
+          //   Object.values(globalrecoverD.data.data)[
+          //     Object.values(globalrecoverD.data.data).length - 2
+          //   ]
+          // );
 
           var fiigure = {
             comfirmCase: globalconf,
-            death: globaldeath,
-            recover: globalrecover
+            death: globaldeath
+            // recover: globalrecover
           };
 
           var yeesterday = {
             comfirmCase: globalconfy,
-            death: globaldeathy,
-            recover: globalrecovery
+            death: globaldeathy
+            // recover: globalrecovery
           };
 
           console.log(fiigure);
@@ -123,7 +124,7 @@ export default props => {
               >
                 累積確診
               </StyledTableCell>
-              <StyledTableCell
+              {/* <StyledTableCell
                 align="center"
                 style={{
                   backgroundColor: "#F23A3B",
@@ -132,8 +133,8 @@ export default props => {
                 }}
               >
                 現有確診
-              </StyledTableCell>
-              <StyledTableCell
+              </StyledTableCell> */}
+              {/* <StyledTableCell
                 align="center"
                 style={{
                   backgroundColor: "#178B50",
@@ -142,7 +143,7 @@ export default props => {
                 }}
               >
                 累積出院
-              </StyledTableCell>
+              </StyledTableCell> */}
               <StyledTableCell
                 align="center"
                 style={{
@@ -167,7 +168,7 @@ export default props => {
               >
                 {figure.comfirmCase}
               </StyledTableCell>
-              <StyledTableCell
+              {/* <StyledTableCell
                 align="center"
                 style={{
                   backgroundColor: "#FDF1F1",
@@ -176,8 +177,8 @@ export default props => {
                 }}
               >
                 {figure.comfirmCase - figure.recover - figure.death}
-              </StyledTableCell>
-              <StyledTableCell
+              </StyledTableCell> */}
+              {/* <StyledTableCell
                 align="center"
                 style={{
                   backgroundColor: "#F1F8F4",
@@ -185,8 +186,8 @@ export default props => {
                   fontSize: 14
                 }}
               >
-                {figure.recover}
-              </StyledTableCell>
+                {figure.recover} */}
+              {/* </StyledTableCell> */}
               <StyledTableCell
                 align="center"
                 style={{
@@ -217,7 +218,7 @@ export default props => {
                   </Typography>
                 )}
               </StyledTableCell>
-              <StyledTableCell
+              {/* <StyledTableCell
                 align="center"
                 style={{ color: "#F23A3B", fontSize: 14 }}
               >
@@ -256,8 +257,8 @@ export default props => {
                         yesterday.death)}
                   </Typography>
                 )}
-              </StyledTableCell>
-              <StyledTableCell
+              </StyledTableCell> */}
+              {/* <StyledTableCell
                 align="center"
                 style={{ color: "#178B50", fontSize: 14 }}
               >
@@ -273,7 +274,7 @@ export default props => {
                     <ArrowDownward /> {figure.recover - yesterday.recover}
                   </Typography>
                 )}
-              </StyledTableCell>
+              </StyledTableCell> */}
               <StyledTableCell
                 align="center"
                 style={{ color: "#4E5A65", fontSize: 14 }}

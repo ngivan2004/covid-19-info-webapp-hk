@@ -18,6 +18,12 @@ function GlobalLeft() {
     <>
       <div style={section}>
         <div style={top}>
+          <p style={{ fontSize: 15, fontStyle: "italic", color: "grey" }}>
+            {" "}
+            由於數據不準確，霍普金斯大學已於3/24起停止提供絕大部分國家（包括美國）的治愈數字。我們只會在圖表上繼續顯示治愈數字及現有確診，惟數字將不再準確，敬請見諒。{" "}
+          </p>
+          <h1>全球疫情</h1>
+
           <hr />
         </div>
 

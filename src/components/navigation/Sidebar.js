@@ -60,7 +60,7 @@ export default prop => {
           <ListItemIcon>
             <FlightIcon color="error" />
           </ListItemIcon>
-          <ListItemText primary="入境數字" />
+          <ListItemText primary="出入境數據" />
         </ListItem>
         <ListItem button key="全球疫情" component="a" href="/global">
           <ListItemIcon>

@@ -307,6 +307,7 @@ export default class CasesIncreaseinaDayChart extends Component {
     return (
       <Paper>
         <h2>每日新增個案</h2>
+
         <div>
           <ButtonGroup
             variant="contained"

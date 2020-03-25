@@ -13,7 +13,7 @@ export default class HKIndepthLeft extends Component {
   render() {
     return (
       <div style={section}>
-        <h1>香港地區深入數據分析</h1>
+        <h1>出入境數據</h1>
         <hr />
 
         <ImmigrationNum />

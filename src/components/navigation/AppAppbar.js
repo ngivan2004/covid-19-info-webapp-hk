@@ -14,6 +14,8 @@ import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 
+import SvgIcon from "@material-ui/core/SvgIcon";
+
 import Link from "@material-ui/core/Link";
 
 import {
@@ -80,9 +82,10 @@ export default prop => {
           >
             <MenuIcon />
           </IconButton>
+
           <Typography variant="h6" className={classes.title}>
             <Link href="/" color="inherit">
-              武漢肺炎數據及資料整合
+              武漢肺炎資料數據整合
             </Link>
           </Typography>
           <Button

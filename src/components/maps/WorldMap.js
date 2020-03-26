@@ -162,6 +162,9 @@ export default props => {
   const eu = () => {
     setRegion("150");
   };
+  const as = () => {
+    setRegion("142");
+  };
   return (
     <Paper>
       <div>
@@ -172,15 +175,6 @@ export default props => {
         >
           <Button onClick={confirmm}>確診</Button>
           <Button onClick={deathh}>死亡</Button>
-        </ButtonGroup>
-        <h6></h6>
-        <ButtonGroup
-          variant="contained"
-          color="primary"
-          aria-label="outlined primary button group"
-        >
-          <Button onClick={wrld}>全球</Button>
-          <Button onClick={eu}>歐洲</Button>
         </ButtonGroup>
       </div>
       <Chart
@@ -196,6 +190,15 @@ export default props => {
         // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
         //mapsApiKey=""
       />
+      <ButtonGroup
+        variant="contained"
+        color="primary"
+        aria-label="outlined primary button group"
+      >
+        <Button onClick={wrld}>全球</Button>
+        <Button onClick={eu}>歐洲</Button>
+        <Button onClick={as}>亞洲</Button>
+      </ButtonGroup>
     </Paper>
   );
 };

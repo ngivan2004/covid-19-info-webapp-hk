@@ -88,13 +88,18 @@ export default prop => {
             <InfoIcon color="primary" />
           </ListItemIcon>
           <ListItemText primary="關於我" />
-        </ListItem>
-        <ListItem button key="你的意見" component="a" href="/contactme">
+      </ListItem>*/}
+        <ListItem
+          button
+          key="你的意見"
+          component="a"
+          href="https://www.facebook.com/coronahkinfo/"
+        >
           <ListItemIcon>
             <MailIcon color="primary" />
           </ListItemIcon>
           <ListItemText primary="你的意見" />
-        </ListItem> */}
+        </ListItem>
         <ListItem button key="資料來源" component="a" href="/source">
           <ListItemIcon>
             <StorageIcon color="primary" />

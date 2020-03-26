@@ -111,18 +111,18 @@ export default prop => {
         onClose={handleClose}
       >
         <MenuItem onClick={handleClose}>
-          <WhatsappShareButton url="www.coronahk.info">
+          <WhatsappShareButton url="https://coronahk.info">
             <WhatsAppIcon /> WhatsApp
           </WhatsappShareButton>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <FacebookShareButton url="www.coronahk.info">
+          <FacebookShareButton url="https://coronahk.info">
             <FacebookIcon />
             Facebook
           </FacebookShareButton>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <TelegramShareButton url="www.coronahk.info">
+          <TelegramShareButton url="https://coronahk.info">
             <TelegramIcon />
             Telegram
           </TelegramShareButton>

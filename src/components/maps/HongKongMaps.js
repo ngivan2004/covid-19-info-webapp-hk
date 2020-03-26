@@ -5,9 +5,6 @@ import { SVGMap } from "react-svg-map";
 import "./HongKongMaps.css";
 import Paper from "@material-ui/core/Paper";
 
-import Container from "@material-ui/core/Container";
-import Typography from "@material-ui/core/Typography";
-
 import axios from "axios";
 import _ from "lodash";
 

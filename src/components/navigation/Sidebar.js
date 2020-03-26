@@ -10,12 +10,13 @@ import HomeIcon from "@material-ui/icons/Home";
 import InfoIcon from "@material-ui/icons/Info";
 import MailIcon from "@material-ui/icons/Mail";
 import TimelineIcon from "@material-ui/icons/Timeline";
-import LocalHospitalIcon from "@material-ui/icons/LocalHospital";
-import CollectionsIcon from "@material-ui/icons/Collections";
-import ApartmentIcon from "@material-ui/icons/Apartment";
+// import LocalHospitalIcon from "@material-ui/icons/LocalHospital";
+// import CollectionsIcon from "@material-ui/icons/Collections";
+// import ApartmentIcon from "@material-ui/icons/Apartment";
 import StorageIcon from "@material-ui/icons/Storage";
-import ContactsIcon from "@material-ui/icons/Contacts";
-import HotelIcon from "@material-ui/icons/Hotel";
+import FacebookIcon from "@material-ui/icons/Facebook";
+// import ContactsIcon from "@material-ui/icons/Contacts";
+// import HotelIcon from "@material-ui/icons/Hotel";
 import PublicIcon from "@material-ui/icons/Public";
 import FlightIcon from "@material-ui/icons/Flight";
 
@@ -99,6 +100,17 @@ export default prop => {
             <MailIcon color="primary" />
           </ListItemIcon>
           <ListItemText primary="你的意見" />
+        </ListItem>
+        <ListItem
+          button
+          key="Facebook專頁"
+          component="a"
+          href="https://www.facebook.com/coronahkinfo/"
+        >
+          <ListItemIcon>
+            <FacebookIcon color="primary" />
+          </ListItemIcon>
+          <ListItemText primary="Facebook專頁" />
         </ListItem>
         <ListItem button key="資料來源" component="a" href="/source">
           <ListItemIcon>

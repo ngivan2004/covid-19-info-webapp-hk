@@ -1,6 +1,7 @@
 import React from "react";
 import "../../App.css";
 import GlobalInfo from "../../components/tables/GlobalInfo";
+import LastUpdate from "../../components/cards/Lastupdate";
 
 const section = {
   paddingLeft: 0,
@@ -17,6 +18,7 @@ function GlobalRight() {
     <>
       <div style={section}>
         <GlobalInfo />
+        <LastUpdate />
       </div>
     </>
   );

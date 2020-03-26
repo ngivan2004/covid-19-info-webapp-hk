@@ -1,9 +1,8 @@
 import React from "react";
 import "../../App.css";
-import ConfirmCasesChart from "../../components/charts/ConfirmCasesChart";
-import CasesIncreaseinaDayChart from "../../components/charts/CasesIncreaseinaDayChart";
+
 import GlobalNewestCaseStatus from "../../components/cards/GlobalNewestCaseStatus";
-import LastUpdate from "../../components/cards/Lastupdate";
+
 import WorldMap from "../../components/maps/WorldMap";
 
 const section = {

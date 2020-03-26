@@ -7,10 +7,8 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import ArrowUpward from "@material-ui/icons/ArrowUpward";
-import ArrowDownward from "@material-ui/icons/ArrowDownward";
+
 import axios from "axios";
-import Typography from "@material-ui/core/Typography";
 
 const StyledTableCell = withStyles(theme => ({
   head: {

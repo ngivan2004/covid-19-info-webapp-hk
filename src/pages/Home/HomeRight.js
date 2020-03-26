@@ -1,14 +1,13 @@
 import React from "react";
 import "../../App.css";
-import ConfirmCasesChart from "../../components/charts/ConfirmCasesChart";
-import CasesIncreaseinaDayChart from "../../components/charts/CasesIncreaseinaDayChart";
-import HKNewestCaseStatus from "../../components/cards/HKNewestCaseStatus";
+
 import LastUpdate from "../../components/cards/Lastupdate";
 import GlobalNewestCaseStatus from "../../components/cards/GlobalNewestCaseStatus";
 import WorldMap from "../../components/maps/WorldMap";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import ImmigrationNum from "../../components/cards/ImmigrationNum";
+
 const section = {
   padding: 10
 };
@@ -30,7 +29,6 @@ function HomeRight() {
             查看出入境數據>>
           </Button>
         </Paper>
-
         <LastUpdate />
       </div>
     </>

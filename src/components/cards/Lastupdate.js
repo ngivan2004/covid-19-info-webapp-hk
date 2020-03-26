@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Paper from "@material-ui/core/Paper";
-import color from "@material-ui/core/colors/amber";
 
 export default function Lastupdate() {
   const [updateDate, setUpdateDate] = useState([]);

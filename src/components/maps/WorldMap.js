@@ -4,6 +4,8 @@ import axios from "axios";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
+import countryList from "react-select-country-list";
+
 export default props => {
   const [show, setShow] = useState();
   const [confirm, setconfirm] = useState();
@@ -21,20 +23,52 @@ export default props => {
       ])
       .then(
         axios.spread((globalconfD, globaldeathD) => {
+          const renameKeys = (keysMap, obj) =>
+            Object.keys(obj).reduce(
+              (acc, key) => ({
+                ...acc,
+                ...{ [keysMap[key] || key]: obj[key] }
+              }),
+              {}
+            );
+
+          var countrywithissues = {
+            "Congo (Brazzaville)": "CG",
+            "Congo (Kinshasa)": "CD",
+            "Cote d'Ivoire": "CI",
+            Czechia: "CZ",
+            "Diamond Princess": "",
+            Eswatini: "SZ",
+            "Taiwan*": "Taiwan",
+            "Cabo Verde": "CV",
+            "Holy See": "VA",
+            "Korea, South": "South Korea",
+            "North Macedonia": "MK",
+            "Timor-Leste": "TL"
+          };
+
           var confirmobj = globalconfD.data.data;
           var confirmobjtoday =
             confirmobj[
               Object.keys(confirmobj)[Object.keys(confirmobj).length - 1]
             ];
 
+          var fixedconfirmobjtoday = renameKeys(
+            countrywithissues,
+            confirmobjtoday
+          );
+
           var deathobj = globaldeathD.data.data;
           var deathobjtoday =
             deathobj[Object.keys(deathobj)[Object.keys(deathobj).length - 1]];
-          confirmarray = Object.entries(confirmobjtoday);
-          //Object.keys(confirmobjtoday).map(function(key) {
-          //     return [Number(key), confirmobjtoday[key]];
-          //   });
-          deatharray = Object.entries(deathobjtoday);
+
+          var fixeddeathobjtoday = renameKeys(countrywithissues, deathobjtoday);
+          delete fixedconfirmobjtoday["Diamond Princess"];
+          delete fixedconfirmobjtoday["West Bank and Gaza"];
+          delete fixeddeathobjtoday["Diamond Princess"];
+          delete fixeddeathobjtoday["West Bank and Gaza"];
+          confirmarray = Object.entries(fixedconfirmobjtoday);
+          deatharray = Object.entries(fixeddeathobjtoday);
           confirmarray.unshift(["Country", "Confirmed Cases"]);
           deatharray.unshift(["Country", "Deaths"]);
 

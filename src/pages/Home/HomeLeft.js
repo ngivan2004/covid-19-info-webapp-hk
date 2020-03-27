@@ -25,7 +25,7 @@ function HomeLeft() {
     const firstDate = new Date();
     const secondDate = new Date(2020, 0, 22);
     var time = firstDate.getHours();
-    setDatee(Math.round(Math.abs((firstDate - secondDate) / oneDay)));
+    setDatee(Math.floor(Math.abs((firstDate - secondDate) / oneDay)));
     if (time < 12) {
       setGreet("早晨");
     }

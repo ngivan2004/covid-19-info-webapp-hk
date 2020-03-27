@@ -43,7 +43,8 @@ export default props => {
             "Holy See": "VA",
             "Korea, South": "South Korea",
             "North Macedonia": "MK",
-            "Timor-Leste": "TL"
+            "Timor-Leste": "TL",
+            Kosovo: "XK"
           };
 
           var confirmobj = globalconfD.data.data;

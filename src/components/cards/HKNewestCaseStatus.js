@@ -64,7 +64,7 @@ export default props => {
                 style={{
                   backgroundColor: "#CC1E1E",
                   color: "white",
-                  fontSize: 9
+                  fontSize: 11
                 }}
               >
                 累積確診
@@ -74,7 +74,7 @@ export default props => {
                 style={{
                   backgroundColor: "#F23A3B",
                   color: "white",
-                  fontSize: 9
+                  fontSize: 11
                 }}
               >
                 現有確診
@@ -84,27 +84,27 @@ export default props => {
                 style={{
                   backgroundColor: "#148B50",
                   color: "white",
-                  fontSize: 9
+                  fontSize: 13
                 }}
               >
-                累積出院
+                出院
               </StyledTableCell>
               <StyledTableCell
                 align="center"
                 style={{
                   backgroundColor: "#4E5A65",
                   color: "white",
-                  fontSize: 9
+                  fontSize: 13
                 }}
               >
-                累積死亡
+                死亡
               </StyledTableCell>
               <StyledTableCell
                 align="center"
                 style={{
                   backgroundColor: "#000000",
                   color: "white",
-                  fontSize: 9
+                  fontSize: 12
                 }}
               >
                 死亡率

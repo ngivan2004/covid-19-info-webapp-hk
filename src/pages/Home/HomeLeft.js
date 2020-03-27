@@ -31,7 +31,8 @@ function HomeLeft() {
     }
     if (time >= 12 && time < 18) {
       setGreet("午安");
-    } else {
+    }
+    if (time > 18) {
       setGreet("晚安");
     }
   }, []);

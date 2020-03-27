@@ -32,7 +32,7 @@ function HomeLeft() {
     if (time >= 12 && time < 18) {
       setGreet("午安");
     }
-    if (time > 18) {
+    if (time >= 18) {
       setGreet("晚安");
     }
   }, []);

@@ -306,9 +306,9 @@ export default class CasesIncreaseinaDayChart extends Component {
   render() {
     return (
       <Paper>
-        <h2>每日新增個案</h2>
+        <h2 style={{ padding: 10 }}>每日新增個案</h2>
 
-        <div>
+        <div style={{ paddingLeft: 10 }}>
           <ButtonGroup
             variant="contained"
             color="primary"

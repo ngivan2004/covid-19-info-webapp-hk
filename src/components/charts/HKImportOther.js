@@ -104,16 +104,18 @@ export const HKImportOther = () => {
   };
   return (
     <Paper>
-      <h2>本地－輸入</h2>
-      <ButtonGroup
-        variant="contained"
-        color="primary"
-        aria-label="outlined primary button group"
-      >
-        <Button onClick={percentage}>百份比%</Button>
-        <Button onClick={barr}>個案</Button>
-        <Button onClick={linee}>折線圖</Button>
-      </ButtonGroup>
+      <h2 style={{ paddingTop: 10, paddingLeft: 10 }}>本地－輸入</h2>
+      <div style={{ paddingTop: 10, paddingLeft: 10 }}>
+        <ButtonGroup
+          variant="contained"
+          color="primary"
+          aria-label="outlined primary button group"
+        >
+          <Button onClick={percentage}>百份比%</Button>
+          <Button onClick={barr}>個案</Button>
+          <Button onClick={linee}>折線圖</Button>
+        </ButtonGroup>
+      </div>
       <Chart
         options={{
           chart: {

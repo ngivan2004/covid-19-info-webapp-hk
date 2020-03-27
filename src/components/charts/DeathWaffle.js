@@ -459,8 +459,8 @@ export default class DeathWaffle extends Component {
   render() {
     return (
       <Paper>
-        <h2>確診個案死亡率*</h2>
-        <div>
+        <h2 style={{ paddingTop: 10, paddingLeft: 10 }}>確診個案死亡率*</h2>
+        <div style={{ paddingLeft: 4 }}>
           <ButtonGroup
             variant="contained"
             color="primary"
@@ -474,19 +474,20 @@ export default class DeathWaffle extends Component {
             <Button onClick={this._3140onClick}>31-40</Button>{" "}
             <Button onClick={this._4150onClick}>41-50</Button>{" "}
           </ButtonGroup>
-          <div></div>
-          <ButtonGroup
-            variant="contained"
-            color="primary"
-            aria-label="outlined primary button group"
-            size="small"
-          >
-            <Button onClick={this._5160onClick}>51-60</Button>{" "}
-            <Button onClick={this._6170onClick}>61-70</Button>{" "}
-            <Button onClick={this._7180onClick}>71-80</Button>{" "}
-            <Button onClick={this._8190onClick}>81-90</Button>{" "}
-            <Button onClick={this._91plusonClick}>91+</Button>
-          </ButtonGroup>
+          <div style={{ paddingTop: 10 }}>
+            <ButtonGroup
+              variant="contained"
+              color="primary"
+              aria-label="outlined primary button group"
+              size="small"
+            >
+              <Button onClick={this._5160onClick}>51-60</Button>{" "}
+              <Button onClick={this._6170onClick}>61-70</Button>{" "}
+              <Button onClick={this._7180onClick}>71-80</Button>{" "}
+              <Button onClick={this._8190onClick}>81-90</Button>{" "}
+              <Button onClick={this._91plusonClick}>91+</Button>
+            </ButtonGroup>
+          </div>
         </div>
         <div style={{ height: "82px" }}>
           <ResponsiveWaffle

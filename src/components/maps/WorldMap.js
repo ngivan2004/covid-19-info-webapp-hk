@@ -166,7 +166,7 @@ export default props => {
   };
   return (
     <Paper>
-      <div>
+      <div style={{ paddingTop: 10, paddingLeft: 10 }}>
         <ButtonGroup
           variant="contained"
           color="primary"
@@ -189,15 +189,17 @@ export default props => {
         // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
         //mapsApiKey=""
       />
-      <ButtonGroup
-        variant="contained"
-        color="primary"
-        aria-label="outlined primary button group"
-      >
-        <Button onClick={wrld}>全球</Button>
-        <Button onClick={eu}>歐洲</Button>
-        <Button onClick={as}>亞洲</Button>
-      </ButtonGroup>
+      <div style={{ padding: 10 }}>
+        <ButtonGroup
+          variant="contained"
+          color="primary"
+          aria-label="outlined primary button group"
+        >
+          <Button onClick={wrld}>全球</Button>
+          <Button onClick={eu}>歐洲</Button>
+          <Button onClick={as}>亞洲</Button>
+        </ButtonGroup>
+      </div>
     </Paper>
   );
 };

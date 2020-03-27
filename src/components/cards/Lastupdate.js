@@ -28,7 +28,7 @@ export default function Lastupdate() {
       );
   }, []);
   return (
-    <Paper>
+    <Paper style={{ paddingLeft: 10 }}>
       <p style={({ lineHeight: "-1" }, { color: "grey" })}>
         數據每約24小時更新一次
       </p>

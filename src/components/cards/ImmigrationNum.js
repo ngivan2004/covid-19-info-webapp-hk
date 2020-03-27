@@ -60,7 +60,7 @@ export default props => {
   }, []);
   return (
     <Paper>
-      <h2>昨日出入境數據</h2>
+      <h2 style={{ paddingTop: 10, paddingLeft: 10 }}>昨日出入境數據</h2>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="customized table">
           <TableHead>

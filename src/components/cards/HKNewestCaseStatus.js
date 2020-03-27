@@ -54,7 +54,7 @@ export default props => {
   }, []);
   return (
     <Paper>
-      <h2>香港最新數字</h2>
+      <h2 style={{ paddingTop: 10, paddingLeft: 10 }}>香港最新數字</h2>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="customized table">
           <TableHead>

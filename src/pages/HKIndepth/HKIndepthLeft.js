@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import HKNewestCaseStatus from "../../components/cards/HKNewestCaseStatus";
-
+import HospitalizedPercentage from "../../components/charts/HospitalizedPercentage";
 import HKImportOther from "../../components/charts/HKImportOther";
 
 const section = {
@@ -20,6 +20,7 @@ export default class HKIndepthLeft extends Component {
 
         {/* <HongKongMaps /> */}
         <HKNewestCaseStatus />
+        <HospitalizedPercentage />
         {/* <HKSeriousCaseStatus /> */}
         <HKImportOther />
       </div>

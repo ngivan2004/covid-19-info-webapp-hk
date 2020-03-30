@@ -67,6 +67,8 @@ export default props => {
           delete fixedconfirmobjtoday["West Bank and Gaza"];
           delete fixeddeathobjtoday["Diamond Princess"];
           delete fixeddeathobjtoday["West Bank and Gaza"];
+          delete fixedconfirmobjtoday["MS Zaandam"];
+          delete fixeddeathobjtoday["MS Zaandam"];
           confirmarray = Object.entries(fixedconfirmobjtoday);
           deatharray = Object.entries(fixeddeathobjtoday);
           confirmarray.unshift(["Country", "Confirmed Cases"]);

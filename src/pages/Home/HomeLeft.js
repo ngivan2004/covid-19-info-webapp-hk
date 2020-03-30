@@ -3,7 +3,7 @@ import "../../App.css";
 import ConfirmCasesChart from "../../components/charts/ConfirmCasesChart";
 import CasesIncreaseinaDayChart from "../../components/charts/CasesIncreaseinaDayChart";
 import HKNewestCaseStatus from "../../components/cards/HKNewestCaseStatus";
-
+import HospitalizedPercentage from "../../components/charts/HospitalizedPercentage";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 
@@ -54,6 +54,7 @@ function HomeLeft() {
         </Paper>
         <Paper>
           <HKNewestCaseStatus />
+          <HospitalizedPercentage />
           <Button href="/hkindepth" color="primary">
             查看香港地區深入數據分析>>
           </Button>

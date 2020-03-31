@@ -161,7 +161,7 @@ export const HKImportOther = () => {
             data: importCasesclose
           },
           {
-            name: "本地個案 及 可能本地個案",
+            name: "本地個案 及 其他",
             data: other
           }
         ]}

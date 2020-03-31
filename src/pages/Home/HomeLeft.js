@@ -56,7 +56,7 @@ function HomeLeft() {
           <HKNewestCaseStatus />
           <HospitalizedPercentage />
           <Button href="/hkindepth" color="primary">
-            查看香港地區深入數據分析>>
+            查看香港地區深入數據分析>
           </Button>
         </Paper>
         <ConfirmCasesChart />

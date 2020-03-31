@@ -94,7 +94,7 @@ export default prop => {
           button
           key="你的意見"
           component="a"
-          href="https://www.facebook.com/coronahkinfo/"
+          href="https://www.facebook.com/香港Covid-19持續更新數據分析-110625023923336/"
         >
           <ListItemIcon>
             <MailIcon color="primary" />
@@ -105,7 +105,7 @@ export default prop => {
           button
           key="Facebook專頁"
           component="a"
-          href="https://www.facebook.com/coronahkinfo/"
+          href="https://www.facebook.com/香港Covid-19持續更新數據分析-110625023923336/"
         >
           <ListItemIcon>
             <FacebookIcon color="primary" />

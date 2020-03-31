@@ -299,6 +299,9 @@ export default props => {
           </TableBody>
         </Table>
       </TableContainer>
+      <p style={{ fontSize: 12, fontStyle: "italic", color: "grey" }}>
+        由於近幾天香港政府發布公開數據有少量問題，現時香港確診數字並不準確，但我們仍保持到其他資料的穩定。
+      </p>
     </Paper>
   );
 };

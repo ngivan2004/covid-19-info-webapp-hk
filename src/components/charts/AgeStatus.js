@@ -14,6 +14,7 @@ export const AgeStatus = () => {
   const [stack, setStack] = useState();
   const [percent, setpercent] = useState();
   const [type, settype] = useState();
+  const [awwait, setawait] = useState([]);
 
   useEffect(() => {
     axios
@@ -137,6 +138,41 @@ export const AgeStatus = () => {
         var latestactive = latest.filter(item => item.status === "住院").length;
         console.log(latestactive);
 
+        var _0110await = _0110.filter(item => item.status === "待入院").length;
+        console.log(_0110await);
+
+        var _1120await = _1120.filter(item => item.status === "待入院").length;
+        console.log(_1120await);
+
+        var _2130await = _2130.filter(item => item.status === "待入院").length;
+        console.log(_2130await);
+
+        var _3140await = _3140.filter(item => item.status === "待入院").length;
+        console.log(_3140await);
+
+        var _4150await = _4150.filter(item => item.status === "待入院").length;
+        console.log(_4150await);
+
+        var _5160await = _5160.filter(item => item.status === "待入院").length;
+        console.log(_5160await);
+
+        var _6170await = _6170.filter(item => item.status === "待入院").length;
+        console.log(_6170await);
+
+        var _7180await = _7180.filter(item => item.status === "待入院").length;
+        console.log(_7180await);
+
+        var _8190await = _8190.filter(item => item.status === "待入院").length;
+        console.log(_8190await);
+
+        var _91plusawait = _91plus.filter(item => item.status === "待入院")
+          .length;
+        console.log(_91plusawait);
+
+        var latestawait = latest.filter(item => item.status === "待入院")
+          .length;
+        console.log(latestawait);
+
         setdeath([
           _0110death,
           _1120death,
@@ -185,7 +221,18 @@ export const AgeStatus = () => {
           _8190active,
           _91plusactive
         ]);
-
+        setawait([
+          _0110await,
+          _1120await,
+          _2130await,
+          _3140await,
+          _4150await,
+          _5160await,
+          _6170await,
+          _7180await,
+          _8190await,
+          _91plusawait
+        ]);
         settype("bar");
         setStack(true);
         setpercent("100%");
@@ -206,15 +253,17 @@ export const AgeStatus = () => {
 
   return (
     <Paper>
-      <h2>按患者年齡－狀態</h2>
-      <ButtonGroup
-        variant="contained"
-        color="primary"
-        aria-label="outlined primary button group"
-      >
-        <Button onClick={percentage}>百份比%</Button>
-        <Button onClick={barr}>個案</Button>
-      </ButtonGroup>
+      <h2 style={{ padding: 10 }}>按患者年齡－狀態</h2>
+      <div style={{ paddingLeft: 10 }}>
+        <ButtonGroup
+          variant="contained"
+          color="primary"
+          aria-label="outlined primary button group"
+        >
+          <Button onClick={percentage}>百份比%</Button>
+          <Button onClick={barr}>個案</Button>
+        </ButtonGroup>
+      </div>
       <Chart
         options={{
           dataLabels: {
@@ -241,7 +290,7 @@ export const AgeStatus = () => {
           xaxis: {
             categories: labels
           },
-          colors: ["#000000", "#ff0000", "#33cc33"],
+          colors: ["#000000", "#ff0000", "#800080", "#33cc33"],
           fill: {
             opacity: 1
           },
@@ -260,6 +309,10 @@ export const AgeStatus = () => {
           {
             name: "住院",
             data: active
+          },
+          {
+            name: "待入院",
+            data: awwait
           },
           {
             name: "出院",

@@ -83,7 +83,7 @@ export default prop => {
 
           <Typography variant="h6" className={classes.title}>
             <Link href="/" color="inherit">
-              武漢肺炎資料數據整合
+              COVID-19資料數據整合
             </Link>
           </Typography>
           <Button

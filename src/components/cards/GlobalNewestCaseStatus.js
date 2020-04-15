@@ -13,30 +13,30 @@ import axios from "axios";
 import Typography from "@material-ui/core/Typography";
 import _ from "lodash";
 
-const StyledTableCell = withStyles(theme => ({
+const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white
+    color: theme.palette.common.white,
   },
   body: {
-    fontSize: 21
-  }
+    fontSize: 21,
+  },
 }))(TableCell);
 
-const StyledTableRow = withStyles(theme => ({
+const StyledTableRow = withStyles((theme) => ({
   root: {
     "&:nth-of-type(odd)": {
-      backgroundColor: theme.palette.background.default
-    }
-  }
+      backgroundColor: theme.palette.background.default,
+    },
+  },
 }))(TableRow);
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 350
-  }
+    minWidth: 350,
+  },
 });
-export default props => {
+export default (props) => {
   const classes = useStyles();
   const [figure, setFigure] = useState({});
   const [yesterday, setYesterday] = useState({});
@@ -45,13 +45,13 @@ export default props => {
     axios
       .all([
         axios.get("https://api.n-cov.info/worldcomfirm"),
-        axios.get("https://api.n-cov.info/worlddeath")
+        axios.get("https://api.n-cov.info/worlddeath"),
         // axios.get("https://api.n-cov.info/worldRecover")
       ])
       .then(
         axios.spread((globalconfD, globaldeathD) => {
           // , globalrecoverD
-          Object.pop = function() {
+          Object.pop = function () {
             for (var key in this) {
               if (!Object.hasOwnProperty.call(this, key)) continue;
               var result = this[key];
@@ -60,7 +60,7 @@ export default props => {
             }
           };
 
-          const sumValues = obj => Object.values(obj).reduce((a, b) => a + b);
+          const sumValues = (obj) => Object.values(obj).reduce((a, b) => a + b);
           let globalconf = sumValues(
             Object.values(globalconfD.data.data).pop()
           );
@@ -89,13 +89,13 @@ export default props => {
 
           var fiigure = {
             comfirmCase: globalconf,
-            death: globaldeath
+            death: globaldeath,
             // recover: globalrecover
           };
 
           var yeesterday = {
             comfirmCase: globalconfy,
-            death: globaldeathy
+            death: globaldeathy,
             // recover: globalrecovery
           };
 
@@ -119,7 +119,7 @@ export default props => {
                 style={{
                   backgroundColor: "#CC1E1E",
                   color: "white",
-                  fontSize: 17
+                  fontSize: 17,
                 }}
               >
                 累積確診
@@ -149,7 +149,7 @@ export default props => {
                 style={{
                   backgroundColor: "#4E5A65",
                   color: "white",
-                  fontSize: 15
+                  fontSize: 15,
                 }}
               >
                 累積死亡
@@ -163,7 +163,7 @@ export default props => {
                 style={{
                   backgroundColor: "#FDF1F1",
                   color: "#CC1E1E",
-                  fontSize: 14
+                  fontSize: 14,
                 }}
               >
                 {figure.comfirmCase}
@@ -193,7 +193,7 @@ export default props => {
                 style={{
                   backgroundColor: "#F3F6F8",
                   color: "#4E5A65",
-                  fontSize: 14
+                  fontSize: 14,
                 }}
               >
                 {figure.death}

@@ -12,30 +12,30 @@ import ArrowDownward from "@material-ui/icons/ArrowDownward";
 import axios from "axios";
 import Typography from "@material-ui/core/Typography";
 
-const StyledTableCell = withStyles(theme => ({
+const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white
+    color: theme.palette.common.white,
   },
   body: {
-    fontSize: 21
-  }
+    fontSize: 21,
+  },
 }))(TableCell);
 
-const StyledTableRow = withStyles(theme => ({
+const StyledTableRow = withStyles((theme) => ({
   root: {
     "&:nth-of-type(odd)": {
-      backgroundColor: theme.palette.background.default
-    }
-  }
+      backgroundColor: theme.palette.background.default,
+    },
+  },
 }))(TableRow);
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 350
-  }
+    minWidth: 350,
+  },
 });
-export default props => {
+export default (props) => {
   const classes = useStyles();
   const [figure, setFigure] = useState({});
   const [yesterday, setYesterday] = useState({});
@@ -45,7 +45,7 @@ export default props => {
       .get(
         "https://r3psfad7i6.execute-api.ap-southeast-1.amazonaws.com/Prod/figure"
       )
-      .then(res => {
+      .then((res) => {
         let latestNumber = res.data.data.pop();
         let yesterdayNumber = res.data.data.pop(-2);
         setFigure(latestNumber);
@@ -64,7 +64,7 @@ export default props => {
                 style={{
                   backgroundColor: "#CC1E1E",
                   color: "white",
-                  fontSize: 11
+                  fontSize: 11,
                 }}
               >
                 累積確診
@@ -74,7 +74,7 @@ export default props => {
                 style={{
                   backgroundColor: "#F23A3B",
                   color: "white",
-                  fontSize: 11
+                  fontSize: 11,
                 }}
               >
                 現有確診
@@ -84,7 +84,7 @@ export default props => {
                 style={{
                   backgroundColor: "#148B50",
                   color: "white",
-                  fontSize: 13
+                  fontSize: 13,
                 }}
               >
                 出院
@@ -94,7 +94,7 @@ export default props => {
                 style={{
                   backgroundColor: "#4E5A65",
                   color: "white",
-                  fontSize: 13
+                  fontSize: 13,
                 }}
               >
                 死亡
@@ -104,7 +104,7 @@ export default props => {
                 style={{
                   backgroundColor: "#000000",
                   color: "white",
-                  fontSize: 12
+                  fontSize: 12,
                 }}
               >
                 死亡率
@@ -118,7 +118,7 @@ export default props => {
                 style={{
                   backgroundColor: "#FDF1F1",
                   color: "#CC1E1E",
-                  fontSize: 16
+                  fontSize: 16,
                 }}
               >
                 {figure.comfirmCase}
@@ -128,7 +128,7 @@ export default props => {
                 style={{
                   backgroundColor: "#FDF1F1",
                   color: "#F23A3B",
-                  fontSize: 16
+                  fontSize: 16,
                 }}
               >
                 {figure.comfirmCase - figure.recover - figure.death}
@@ -138,7 +138,7 @@ export default props => {
                 style={{
                   backgroundColor: "#F1F8F4",
                   color: "#148B50",
-                  fontSize: 16
+                  fontSize: 16,
                 }}
               >
                 {figure.recover}
@@ -148,7 +148,7 @@ export default props => {
                 style={{
                   backgroundColor: "#F3F6F8",
                   color: "#4E5A65",
-                  fontSize: 16
+                  fontSize: 16,
                 }}
               >
                 {figure.death}
@@ -158,7 +158,7 @@ export default props => {
                 style={{
                   backgroundColor: "#F3F6F8",
                   color: "#4E5A65",
-                  fontSize: 16
+                  fontSize: 16,
                 }}
               >
                 {(
@@ -299,9 +299,6 @@ export default props => {
           </TableBody>
         </Table>
       </TableContainer>
-      <p style={{ fontSize: 12, fontStyle: "italic", color: "grey" }}>
-        由於近幾天香港政府發布公開數據有少量問題，現時香港確診數字並不準確，但我們仍保持到其他資料的穩定。
-      </p>
     </Paper>
   );
 };

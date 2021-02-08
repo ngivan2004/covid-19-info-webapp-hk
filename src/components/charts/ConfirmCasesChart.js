@@ -51,18 +51,18 @@ export default class ConfirmCasesChart extends Component {
     axios
       .all([
         axios.get(
-          "https://r3psfad7i6.execute-api.ap-southeast-1.amazonaws.com/Prod/figure"
+          "https://api.data.gov.hk/v2/filter?q=%7B%22resource%22%3A%22http%3A%2F%2Fwww.chp.gov.hk%2Ffiles%2Fmisc%2Flatest_situation_of_reported_cases_covid_19_eng.csv%22%2C%22section%22%3A1%2C%22format%22%3A%22json%22%7D"
         ),
-        axios.get("https://api.n-cov.info/worldcomfirm"),
-        axios.get("https://api.n-cov.info/worlddeath"),
-        axios.get("https://api.n-cov.info/worldRecover")
+        axios.get("https://covid.ourworldindata.org/data/owid-covid-data.json/"),
+        //axios.get("https://api.n-cov.info/worlddeath"),
+        //axios.get("https://api.n-cov.info/worldRecover")
       ])
       .then(
         axios.spread((hklatestD, globalconfD, globaldeathD, globalrecoverD) => {
-          const hklatest = hklatestD.data.data;
-          const globalconfirmlateset = globalconfD.data.data;
-          const globaldeathlatest = globaldeathD.data.data;
-          const globalrecoverlatest = globalrecoverD.data.data;
+          const hklatest = hklatestD.data;
+          const globallatest = globalconfD.data.OWID_WRL.data;
+          //const globaldeathlatest = globaldeathD.data.data;
+          //const globalrecoverlatest = globalrecoverD.data.data;
 
           // console.log(globalconfirmlateset);
 
@@ -87,25 +87,33 @@ export default class ConfirmCasesChart extends Component {
           this.globalactivecasesfin = [];
 
           const sumValues = obj => Object.values(obj).reduce((a, b) => a + b);
-
+          console.log(this.hkcomfirmCase);
           hklatest.map(item => {
-            this.hklabels.push(item.updateDate);
-            this.hkcomfirmCase.push(item.comfirmCase);
-            this.hkrecover.push(item.recover);
-            this.hkdeath.push(item.death);
+            this.hklabels.push(item["As of date"]);
+            this.hkcomfirmCase.push(item["Number of confirmed cases"]);
+            this.hkrecover.push(item["Number of discharge cases"]);
+            this.hkdeath.push(item["Number of death cases"]);
             return true;
           });
-
-          Object.values(globalconfirmlateset).map(item => {
+          for (let i = 0; i <= this.hkrecover.length - 1; i++)
+            this.hkactivecasesfin.push(
+              this.hkcomfirmCase[i] - this.hkrecover[i] - this.hkdeath[i]
+            );
+/*          Object.values(globalconfirmlateset).map(item => {
             this.globalconfirmCase.push(sumValues(item));
             this.cnconfirmCase.push(item.China);
             return true;
           });
-          Object.keys(globalconfirmlateset).map(item => {
-            this.globallabels.push(item);
-            return true;
-          });
-          // console.log(this.globallabels);
+          */
+         globallatest.map(item => {
+          this.globallabels.push(item["date"]);
+          this.globalconfirmCase.push(item["total_cases"]);
+          this.globaldeath.push(item["new_cases"]);
+          return true;
+        });
+          
+           console.log(this.globallabels);
+          /*
           Object.values(globaldeathlatest).map(item => {
             this.globaldeath.push(sumValues(item));
             this.cndeath.push(item.China);
@@ -136,7 +144,7 @@ export default class ConfirmCasesChart extends Component {
             this.globalactivecasesfin.push(
               this.globalactivecases1[i] - this.globalrecover[i]
             );
-
+*/
           // console.log(this.globalconfirmCase);
           this.setState({
             options: {

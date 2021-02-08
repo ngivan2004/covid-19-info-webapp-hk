@@ -15,17 +15,17 @@ export const AgeStatus = () => {
   useEffect(() => {
     axios
       .get(
-        "https://r3psfad7i6.execute-api.ap-southeast-1.amazonaws.com/Prod/case"
+        "https://api.data.gov.hk/v2/filter?q=%7B%22resource%22%3A%22http%3A%2F%2Fwww.chp.gov.hk%2Ffiles%2Fmisc%2Fenhanced_sur_covid_19_eng.csv%22%2C%22section%22%3A1%2C%22format%22%3A%22json%22%7D"
       )
       .then(data => {
-        const latest = data.data.data;
+        const latest = data.data;
 
         var _hospitalized = latest.filter(function(stat) {
-          return stat.status == "住院";
+          return stat["Hospitalised/Discharged/Deceased"] == "Hospitalised";
         });
 
         var _awaiting = latest.filter(function(stat) {
-          return stat.status == "待入院";
+          return stat["Hospitalised/Discharged/Deceased"] == "To be provided";
         });
 
         var hospitalizedNum = [Object.keys(_hospitalized).length];
@@ -115,7 +115,7 @@ export const AgeStatus = () => {
           },
 
           {
-            name: "未能入院",
+            name: "待確認",
             data: awaiting
           }
         ]}

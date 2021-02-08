@@ -54,7 +54,7 @@ function HomeLeft() {
         </Paper>
         <Paper>
           <HKNewestCaseStatus />
-          <HospitalizedPercentage />
+{/*          <HospitalizedPercentage />*/}
           <Button href="/hkindepth" color="primary">
             查看香港地區深入數據分析>
           </Button>

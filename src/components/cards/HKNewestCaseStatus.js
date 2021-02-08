@@ -43,11 +43,11 @@ export default (props) => {
   useEffect(() => {
     axios
       .get(
-        "https://r3psfad7i6.execute-api.ap-southeast-1.amazonaws.com/Prod/figure"
+        "https://api.data.gov.hk/v2/filter?q=%7B%22resource%22%3A%22http%3A%2F%2Fwww.chp.gov.hk%2Ffiles%2Fmisc%2Flatest_situation_of_reported_cases_covid_19_eng.csv%22%2C%22section%22%3A1%2C%22format%22%3A%22json%22%7D"
       )
       .then((res) => {
-        let latestNumber = res.data.data.pop();
-        let yesterdayNumber = res.data.data.pop(-2);
+        let latestNumber = res.data.pop();
+        let yesterdayNumber = res.data.pop(-2);
         setFigure(latestNumber);
         setYesterday(yesterdayNumber);
       });
@@ -79,6 +79,12 @@ export default (props) => {
               >
                 現有確診
               </StyledTableCell>
+              <StyledTableCell
+              align="center"
+              style={{ backgroundColor: "#801749", color: "white" }}
+            >
+              危殆病例
+            </StyledTableCell>
               <StyledTableCell
                 align="center"
                 style={{
@@ -121,7 +127,7 @@ export default (props) => {
                   fontSize: 16,
                 }}
               >
-                {figure.comfirmCase}
+                {figure["Number of confirmed cases"]}
               </StyledTableCell>
               <StyledTableCell
                 align="center"
@@ -131,8 +137,14 @@ export default (props) => {
                   fontSize: 16,
                 }}
               >
-                {figure.comfirmCase - figure.recover - figure.death}
+                {figure["Number of confirmed cases"] - figure["Number of discharge cases"] - figure["Number of death cases"]}
               </StyledTableCell>
+              <StyledTableCell
+              align="center"
+              style={{ backgroundColor: "#FAF2F6", color: "#801749",fontSize:16 }}
+            >
+              {figure["Number of hospitalised cases in critical condition"]}
+            </StyledTableCell>
               <StyledTableCell
                 align="center"
                 style={{
@@ -141,7 +153,7 @@ export default (props) => {
                   fontSize: 16,
                 }}
               >
-                {figure.recover}
+                {figure["Number of discharge cases"]}
               </StyledTableCell>
               <StyledTableCell
                 align="center"
@@ -151,7 +163,7 @@ export default (props) => {
                   fontSize: 16,
                 }}
               >
-                {figure.death}
+                {figure["Number of death cases"]}
               </StyledTableCell>
               <StyledTableCell
                 align="center"
@@ -162,7 +174,7 @@ export default (props) => {
                 }}
               >
                 {(
-                  (figure.death / (figure.death + figure.recover)) *
+                  (figure["Number of death cases"] / (figure["Number of death cases"] + figure["Number of discharge cases"])) *
                   100
                 ).toFixed(1)}
                 %
@@ -173,17 +185,17 @@ export default (props) => {
                 align="center"
                 style={{ color: "#CC1E1E", fontSize: 12 }}
               >
-                {figure.comfirmCase - yesterday.comfirmCase > 0 ? (
+                {figure["Number of confirmed cases"] - yesterday["Number of confirmed cases"] > 0 ? (
                   <Typography style={{ fontSize: 12 }}>
                     <ArrowUpward />
-                    {figure.comfirmCase - yesterday.comfirmCase}
+                    {figure["Number of confirmed cases"] - yesterday["Number of confirmed cases"]}
                   </Typography>
-                ) : figure.comfirmCase - yesterday.comfirmCase === 0 ? (
+                ) : figure["Number of confirmed cases"] - yesterday["Number of confirmed cases"] === 0 ? (
                   <Typography>-</Typography>
                 ) : (
                   <Typography style={{ fontSize: 12 }}>
                     <ArrowDownward />{" "}
-                    {figure.comfirmCase - yesterday.comfirmCase}
+                    {figure["Number of confirmed cases"] - yesterday["Number of confirmed cases"]}
                   </Typography>
                 )}
               </StyledTableCell>
@@ -191,39 +203,56 @@ export default (props) => {
                 align="center"
                 style={{ color: "#F23A3B", fontSize: 12 }}
               >
-                {figure.comfirmCase -
-                  figure.recover -
-                  figure.death -
-                  (yesterday.comfirmCase -
-                    yesterday.recover -
-                    yesterday.death) >
+                {figure["Number of confirmed cases"] -
+                  figure["Number of discharge cases"] -
+                  figure["Number of death cases"] -
+                  (yesterday["Number of confirmed cases"] -
+                    yesterday["Number of discharge cases"] -
+                    yesterday["Number of death cases"]) >
                 0 ? (
                   <Typography style={{ fontSize: 12 }}>
                     <ArrowUpward />
-                    {figure.comfirmCase -
-                      figure.recover -
-                      figure.death -
-                      (yesterday.comfirmCase -
-                        yesterday.recover -
-                        yesterday.death)}
+                    {figure["Number of confirmed cases"] -
+                      figure["Number of discharge cases"] -
+                      figure["Number of death cases"] -
+                      (yesterday["Number of confirmed cases"] -
+                        yesterday["Number of discharge cases"] -
+                        yesterday["Number of death cases"])}
                   </Typography>
-                ) : figure.comfirmCase -
-                    figure.recover -
-                    figure.death -
-                    (yesterday.comfirmCase -
-                      yesterday.recover -
-                      yesterday.death) ===
+                ) : figure["Number of confirmed cases"] -
+                    figure["Number of discharge cases"] -
+                    figure["Number of death cases"] -
+                    (yesterday["Number of confirmed cases"] -
+                      yesterday["Number of discharge cases"] -
+                      yesterday["Number of death cases"]) ===
                   0 ? (
                   <Typography>-</Typography>
                 ) : (
                   <Typography style={{ fontSize: 12 }}>
                     <ArrowDownward />{" "}
-                    {figure.comfirmCase -
-                      figure.recover -
-                      figure.death -
-                      (yesterday.comfirmCase -
-                        yesterday.recover -
-                        yesterday.death)}
+                    {figure["Number of confirmed cases"] -
+                      figure["Number of discharge cases"] -
+                      figure["Number of death cases"] -
+                      (yesterday["Number of confirmed cases"] -
+                        yesterday["Number of discharge cases"] -
+                        yesterday["Number of death cases"])}
+                  </Typography>
+                )}
+              </StyledTableCell>
+              <StyledTableCell
+                align="center"
+                style={{ color: "#801749", fontSize: 12 }}
+              >
+                {figure["Number of hospitalised cases in critical condition"] - yesterday["Number of hospitalised cases in critical condition"] > 0 ? (
+                  <Typography style={{ fontSize: 12 }}>
+                    <ArrowUpward />
+                    {figure["Number of hospitalised cases in critical condition"] - yesterday["Number of hospitalised cases in critical condition"]}
+                  </Typography>
+                ) : figure["Number of hospitalised cases in critical condition"] - yesterday["Number of hospitalised cases in critical condition"] === 0 ? (
+                  <Typography>-</Typography>
+                ) : (
+                  <Typography style={{ fontSize: 12 }}>
+                    <ArrowDownward /> {figure["Number of hospitalised cases in critical condition"] - yesterday["Number of hospitalised cases in critical condition"]}
                   </Typography>
                 )}
               </StyledTableCell>
@@ -231,16 +260,16 @@ export default (props) => {
                 align="center"
                 style={{ color: "#148B50", fontSize: 12 }}
               >
-                {figure.recover - yesterday.recover > 0 ? (
+                {figure["Number of discharge cases"] - yesterday["Number of discharge cases"] > 0 ? (
                   <Typography style={{ fontSize: 12 }}>
                     <ArrowUpward />
-                    {figure.recover - yesterday.recover}
+                    {figure["Number of discharge cases"] - yesterday["Number of discharge cases"]}
                   </Typography>
-                ) : figure.recover - yesterday.recover === 0 ? (
+                ) : figure["Number of discharge cases"] - yesterday["Number of discharge cases"] === 0 ? (
                   <Typography>-</Typography>
                 ) : (
                   <Typography style={{ fontSize: 12 }}>
-                    <ArrowDownward /> {figure.recover - yesterday.recover}
+                    <ArrowDownward /> {figure["Number of discharge cases"] - yesterday["Number of discharge cases"]}
                   </Typography>
                 )}
               </StyledTableCell>
@@ -248,16 +277,16 @@ export default (props) => {
                 align="center"
                 style={{ color: "#4E5A65", fontSize: 12 }}
               >
-                {figure.death - yesterday.death > 0 ? (
+                {figure["Number of death cases"] - yesterday["Number of death cases"] > 0 ? (
                   <Typography style={{ fontSize: 12 }}>
                     <ArrowUpward />
-                    {figure.death - yesterday.death}
+                    {figure["Number of death cases"] - yesterday["Number of death cases"]}
                   </Typography>
-                ) : figure.death - yesterday.death === 0 ? (
+                ) : figure["Number of death cases"] - yesterday["Number of death cases"] === 0 ? (
                   <Typography>-</Typography>
                 ) : (
                   <Typography style={{ fontSize: 12 }}>
-                    <ArrowDownward /> {figure.death - yesterday.death}
+                    <ArrowDownward /> {figure["Number of death cases"] - yesterday["Number of death cases"]}
                   </Typography>
                 )}
               </StyledTableCell>
@@ -265,30 +294,30 @@ export default (props) => {
                 align="center"
                 style={{ color: "#4E5A65", fontSize: 16 }}
               >
-                {figure.death / (figure.death + figure.recover) -
-                  yesterday.death / (yesterday.death + yesterday.recover) >
+                {figure["Number of death cases"] / (figure["Number of death cases"] + figure["Number of discharge cases"]) -
+                  yesterday["Number of death cases"] / (yesterday["Number of death cases"] + yesterday["Number of discharge cases"]) >
                 0 ? (
                   <Typography style={{ fontSize: 12 }}>
                     <ArrowUpward />
                     {(
-                      (figure.death / (figure.death + figure.recover) -
-                        yesterday.death /
-                          (yesterday.death + yesterday.recover)) *
+                      (figure["Number of death cases"] / (figure["Number of death cases"] + figure["Number of discharge cases"]) -
+                        yesterday["Number of death cases"] /
+                          (yesterday["Number of death cases"] + yesterday["Number of discharge cases"])) *
                       100
                     ).toFixed(1)}
                     %
                   </Typography>
-                ) : figure.death / (figure.death + figure.recover) -
-                    yesterday.death / (yesterday.death + yesterday.recover) ===
+                ) : figure["Number of death cases"] / (figure["Number of death cases"] + figure["Number of discharge cases"]) -
+                    yesterday["Number of death cases"] / (yesterday["Number of death cases"] + yesterday["Number of discharge cases"]) ===
                   0 ? (
                   <Typography>-</Typography>
                 ) : (
                   <Typography style={{ fontSize: 9 }}>
                     <ArrowDownward />{" "}
                     {(
-                      (figure.death / (figure.death + figure.recover) -
-                        yesterday.death /
-                          (yesterday.death + yesterday.recover)) *
+                      (figure["Number of death cases"] / (figure["Number of death cases"] + figure["Number of discharge cases"]) -
+                        yesterday["Number of death cases"] /
+                          (yesterday["Number of death cases"] + yesterday["Number of discharge cases"])) *
                       100
                     ).toFixed(1)}
                     %
